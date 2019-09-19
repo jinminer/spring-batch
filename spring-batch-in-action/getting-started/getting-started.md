@@ -233,67 +233,165 @@ spring batch 2.X 版本开始，支持 Java 5 的增强特性，如泛型、参�
     ![](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/getting-started/1.4.3-data-handle-strategy-chunk-1.png)
 
     ![](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/getting-started/1.4.3-data-handle-strategy-chunk-2.png)
+    
+  * `ItemProcessor` -  数据处理
+  
+    * 是 `ItemTransformer` 的重新命名，并将其层级提升到和 `ItemReader` 与 `ItemWriter` 相同等级
+    * 通常的业务场景需要在数据写入前，对数据进行处理
+  
+    ![item-processor](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/getting-started/1.4.3-item-processor-1.png)
 
 
 
+#### 1.4.4 元数据访问
+
+![metadata-access-1](<https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/getting-started/1.4.4-metadata-access-1.png>)
+
+* `JobRepository` - 增删改查接口
+* `JobExplorer` - 元数据访问接口
+* `JobOperator` - 元数据访问接口
 
 
 
+#### 1.4.5 扩展性
+
+spring batch 2.0 增加支持多进程执行任务
+
+* 远程分块
+  * 远程分块是指把一个Step进行技术分割，并且在分割时不需要对处理数据的结构由明确的了解
+  * 任何输入源能够使用单进程读取并再动态分割后作为“块”发送给远程工作的工作进程
+  * 远程进程实现了监听者模式，反馈请求、处理数据最终将处理结果异步返回
+  * 请求和返回之间的传输会被确保在发送者和单个消费者之间
+  * spring batch 在 spring integration 顶部实现了远程分块的特性
+* 分区
+  * 进行分区时，需要对数据的结构有一定的了解，如主键的范围、待处理文件的名字等
+  * 分区模式的优点在于分区中每一个元素的处理器都能像一个普通 spring batch 任务的单步一样运行，不必取实现任何特殊的或是新的模式，来让它们能够更容易配置与测试
+  * 分区并不存在从一个地方读取所有输入数据并进行序列化的瓶颈，所以比远程分块更具扩展性
+  * spring batch中两个支持分区的接口：
+    * `PartitionHandler` 
+      * 知道执行结构，即它需要将请求发送到远程步骤，并使用任何可以使用的网格或是远程技术收集计算结果
+      * `PartitionHandler` 是一个 SPI，它和  spring batch通过 TaskExecutor 为本地执行提供了一个外部实现方式，这个功能在有大量 I/O 操作处理场景时很有用
+    * `StepExecutionSplitter` 
 
 
 
+#### 1.4.6 可配置性
+
+* spring batch 1.X 没有独立的命名空间，所有批处理的配置都需要通过 `<bean>` 、`<property>` 元素来配置
+* spring batch 2.X 版本中增加了批处理命名空间，可通过 `<job>` 、 `<step>` 等属性进行批处理配置
 
 
 
+### 1.5 spring batch 2.2 新特性
+
+相对于 spring batch 2.0 系列，spring batch 2.2.X 系列提供了如下新的特性：
+
+1. 支持 spring data 集成
+2. 支持 java 配置
+3. 支持重试模块(spring retry)重构
+4. 作业参数变化(job parameters)
 
 
 
+#### 1.5.1 spring data 集成
 
 
 
+#### 1.5.2 支持 JavaConfig
+
+* xml config
+
+  ![configuration-xml-1](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/getting-started/1.5.2-configuration-xml-1.png)
+
+  ![configuration-xml-2](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/getting-started/1.5.2-configuration-xml-2.png)
 
 
 
+* java config
+
+  * `@EnableBatchProcessing` - 依赖默认的 spring bean 对象，包括：
+    * `JobLauncher` - 作业调度器
+    * `JobRegistry` - 作业注册器
+    * `PlatformTransactionManager` - 事物管理器
+    * `JobBuilderFactory` - 作业构建工厂
+    * `StepBuilderFactory` - 作业步构建工厂
+
+  ![configuration-javaconfig-1](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/getting-started/1.5.2-configuration-javaconfig-1.png)
 
 
 
+#### 1.5.3 spring retry
+
+* spring batch 2.2 之前：`org.springframework.batch.retry`
+* spring batch 2.2 + ：`org.springframework.retry` 
 
 
 
+#### 1.5.4 job parameters
+
+- spring batch 2.2 之前：作业参数(Job Parameters)被强制用来标识作业实例(Job Instance)
+- spring batch 2.2 + ：作业参数是否用来标识作业实例，用户可以自由选择
+- 作业实例关联缺陷
+  - 2.2 之前的版本强制作业参数作为作业的实例，即作业参数与作业实例ID进行关联，导致在作业重启的情况下无法修改作业参数
+  - 自2.2版本开始将作业参数与作业执行器的 ID 进行关联，变得更灵活
 
 
 
+## 2 spring batch hello world
+
+### 2.1 示例
+
+* 场景
+
+  * 描述：个人使用信用卡消费，银行定期发送银行卡消费账单，本例模拟银行处理个人信用卡消费对账单对账，银行需要定期地把个人消费地记录导出成 CSV 格式文件，然后交给对账系统处理，本例子模拟银行读入 CSV 文件，经过处理后，生成新的对账单
+
+  * 架构图
+
+    ![scene-structure-1](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/getting-started/2.1-scene-structure-1.png)
+
+### 2.2 代码
+
+#### 2.2.1 项目结构
+
+#### 2.2.2 准备对账文件
 
 
 
+### 2.3 定义 Job 基础设施
 
 
 
+### 2.4 定义对账 Job
+
+#### 2.4.1 配置 ItemReader
+
+#### 2.4.2 配置 ItemProcessor
+
+#### 2.4.3 配置 ItemWriter
 
 
 
+### 2.5 执行 Job
+
+#### 2.5.1 Java 调用
+
+#### 2.5.2 JUnit 单元测试
 
 
 
+### 2.6 概念预览
 
+Spring batch 中的一些基本概念
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* `Job Repository` - 作业仓库，负责 Job、Step 执行过程中的状态保存
+* `Job Launcher` - 作业调度器，提供执行 Job 的入口
+* `Job` - 作业，由多个 Step 组成，封装整个批处理操作 
+* `Step` - 作业步，Job 的一个执行环节，由多个或者一个 Step 组装成 Job
+* `Tasklet` - Step 中具体执行逻辑的操作，可以重复执行，可以设置具体的同步、异步操作等
+* `Chunk` - 给定数量 Item 的集合，可以定义对 Chunk 的读操作、处理操作、写操作，提交间隔等，这是 Spring Batch 框架的一个重要特性
+* `Item` - 一条数据记录
+* `ItemReader` - 从数据源(文件系统、数据库、队列等)中读取 Item
+* `ItemWriter` - 将 Item 批量写入数据源(文件系统、数据库、队列等)
 
 
 
