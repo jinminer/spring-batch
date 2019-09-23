@@ -40,6 +40,6 @@ public class JobLaunch {
 	 */
 	public static void main(String[] args) {
 		executeJob("ch03/job/job.xml", "billJob",
-				new JobParametersBuilder().addString("date", "20130308"));
+				new JobParametersBuilder().addString("date", "20130309"));
 	}
 }

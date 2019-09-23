@@ -52,9 +52,9 @@
    			<bean:value>com.mysql.jdbc.Driver</bean:value>
   		</bean:property>
   		<bean:property name="url">
-   			<bean:value>jdbc:mysql://127.0.0.1:3306/test1289</bean:value>
+            <bean:value>jdbc:mysql://60.205.189.50:3306/mysql</bean:value>
   		</bean:property>
   		<bean:property name="username" value="root"></bean:property>
-  		<bean:property name="password" value="000000"></bean:property>
+  		<bean:property name="password" value="123456"></bean:property>
  	</bean:bean>
 </bean:beans>
