@@ -41,9 +41,9 @@
         </step>
     </job>
     
-    <bean:bean id="reader" class="com.juxtapose.example.ch04.stop.AutoReader" />
-	<bean:bean id="writer" class="com.juxtapose.example.ch04.stop.ConsoleWriter" />
-	<bean:bean id="stopListener" class="com.juxtapose.example.ch04.stop.StopStepListener" />
+    <bean:bean id="reader" class="com.jinm.example.ch04.stop.AutoReader" />
+	<bean:bean id="writer" class="com.jinm.example.ch04.stop.ConsoleWriter" />
+	<bean:bean id="stopListener" class="com.jinm.example.ch04.stop.StopStepListener" />
     
 	<bean:bean 
 	    class="org.springframework.batch.core.configuration.support.JobRegistryBeanPostProcessor">

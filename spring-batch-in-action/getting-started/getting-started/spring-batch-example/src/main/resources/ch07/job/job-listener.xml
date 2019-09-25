@@ -75,26 +75,26 @@
     
     
     <bean:bean id="errorItemWriteListener"
-		class="com.juxtapose.example.ch07.listener.ErrorItemWriteListener">
+		class="com.jinm.example.ch07.listener.ErrorItemWriteListener">
 	</bean:bean>
 	
     <bean:bean id="sysoutItemWriteListener"
-		class="com.juxtapose.example.ch07.listener.SystemOutItemWriteListener">
+		class="com.jinm.example.ch07.listener.SystemOutItemWriteListener">
 	</bean:bean>
 	
     <bean:bean id="sysoutAnnotationItemWriteListener"
-		class="com.juxtapose.example.ch07.listener.SystemOutAnnotation">
+		class="com.jinm.example.ch07.listener.SystemOutAnnotation">
 	</bean:bean>
 	
     <bean:bean id="creditItemRead"
-		class="com.juxtapose.example.ch07.DummyCreditItemReader">
+		class="com.jinm.example.ch07.DummyCreditItemReader">
 	</bean:bean>
 	
 	<bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch07.CreditBillProcessor">
+        class="com.jinm.example.ch07.CreditBillProcessor">
     </bean:bean>
     
     <bean:bean id="creditItemWriter" 
-        class="com.juxtapose.example.ch07.DummyCreditItemWriter"/>
+        class="com.jinm.example.ch07.DummyCreditItemWriter"/>
             
 </bean:beans>

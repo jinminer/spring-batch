@@ -65,10 +65,10 @@
 	</bean:bean>
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch06.hibernate.CreditBillProcessor">
+        class="com.jinm.example.ch06.hibernate.CreditBillProcessor">
     </bean:bean>
     
     <bean:bean id="creditItemWriter" 
-        class="com.juxtapose.example.ch06.hibernate.DummyCreditItemWriter"/>
+        class="com.jinm.example.ch06.hibernate.DummyCreditItemWriter"/>
     
 </bean:beans>

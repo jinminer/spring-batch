@@ -11,7 +11,7 @@ import test.com.juxtapose.example.JobLaunchBase;
 
 /**
  * 
- * @author bruce.liu(mailto:jxta.liu@gmail.com)
+ *
  * 2013-9-29下午12:36:33
  */
 public class JobLaunchRestartableCustomItemWriter {

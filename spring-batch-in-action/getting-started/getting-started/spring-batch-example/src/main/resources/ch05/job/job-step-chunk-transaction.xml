@@ -33,11 +33,11 @@
         </step>
     </job>
     
-    <bean:bean id="reader" class="com.juxtapose.example.ch05.AutoReader" >
+    <bean:bean id="reader" class="com.jinm.example.ch05.AutoReader" >
         <bean:property name="maxCount" value="100" />
     </bean:bean>
-    <bean:bean id="processor" class="com.juxtapose.example.ch05.TransactionItemProcessor">
+    <bean:bean id="processor" class="com.jinm.example.ch05.TransactionItemProcessor">
         <bean:property name="errorCount" value="3"></bean:property>
     </bean:bean>
-	<bean:bean id="writer" class="com.juxtapose.example.ch05.ConsoleWriter" />
+	<bean:bean id="writer" class="com.jinm.example.ch05.ConsoleWriter" />
 </bean:beans>

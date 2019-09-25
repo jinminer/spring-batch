@@ -36,13 +36,13 @@
     </job>
     
     <bean:bean id="sysoutRetryListener" 
-        class=" com.juxtapose.example.ch10.retry.SystemOutRetryListener" />
+        class=" com.jinm.example.ch10.retry.SystemOutRetryListener" />
     
-    <bean:bean id="reader" class="com.juxtapose.example.ch10.retry.AutoReader" >
+    <bean:bean id="reader" class="com.jinm.example.ch10.retry.AutoReader" >
         <bean:property name="maxCount" value="100" />
     </bean:bean>
     
-	<bean:bean id="writer" class="com.juxtapose.example.ch10.retry.ConsoleWriter" />
+	<bean:bean id="writer" class="com.jinm.example.ch10.retry.ConsoleWriter" />
 	<bean:bean id="alwaysExceptionItemProcessor" 
-	    class="com.juxtapose.example.ch10.retry.AlwaysExceptionItemProcessor" />
+	    class="com.jinm.example.ch10.retry.AlwaysExceptionItemProcessor" />
 </bean:beans>

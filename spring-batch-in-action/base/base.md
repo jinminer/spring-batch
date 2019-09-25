@@ -399,57 +399,199 @@ Spring Batch 2.X 版本中增加了批处理的命名空间，简化了配置操
 * 拦截器异常
   * 拦截器方法如果抛出异常会影响 Job 的正常执行，所以在执行自定义的拦截器时，需要考虑对拦截器发生的异常做处理，避免影响业务
   * 如果拦截器发生异常，会导致 Job 执行的状态为 `FAILED` 
+  
 * 执行顺序
   * 在配置文件中可以配置多个 listener，拦截器之间的执行顺序安装 listener 定义的顺序执行，即配置文件中定义的顺序。
   * before 方法按照 listener 定义的顺序执行，after 方法按照相反的顺序执行
+  
+* Java Config
+
+  * Spring Batch 提供了 Annotation 机制，可以不实现 `JobExecutionListener` 接口，直接通过注解定义拦截器
+    * `@BeforeJob` - 声明作业执行前的操作
+    * `@AfterJob` - 声明作业执行后的操作
 
 
 
+#### 4.1.3 Job Parameters 校验
+
+* spring batch 提供了 Job 作业参数的校验功能
+* 开发者可以自定义实现参数校验器
+  * 需要实现接口 - `org.springframework.batch.core.JobParametersValidator` 
+* `JobParametersValidator` 默认实现
+  * `org.springframework.batch.core.job.DefaultJobParametersValidator` 
+    * 参数校验组合模式，支持一组参数校验
+  * `org.springframework.batch.core.job.CompositeJobParametersValidator` 
+    * 参数校验默认实现，支持必须输入的参数和可以选择输入的参数
+* 在执行 Job 时，可以通过 `org.springframework.batch.core.JobParametersBuilder` 构造作业参数
 
 
 
+#### 4.1.4 Job 抽象与继承
+
+* spring batch 支持抽象的 Job 定义和 Job 的继承特性。通过定义抽象的 Job 可以将 Job 的共性进行抽取，定义父类 Job；然后具体的 Job 可以继承父类的特性，并定义自己的属性。通过 Job  的属性 abstract 可以定义抽象的 Job，通过属性 parent 可以指定当前 Job 的父 Job
+
+* 抽象 Job
+
+  ![job-abstract-xml-1](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/base/4.1.4-job-abstract-xml-1.png)
+
+* 继承 Job
+
+  ![job-abstract-xml-1](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/base/4.1.4-job-abstract-xml-1.png)
+
+* merge 列表
+  * 如果父子类中均定义了拦截器，则可以通过设置 merge 属性为 true 对拦截器列表合并；如果设置 merge 属性为 false，则子类中定义的拦截器直接覆盖掉父类中定义的拦截器
+  * 通过抽象和继承的特性可以方便的对 Job 进行共性抽象和 Job 的复用
 
 
 
+### 4.2 高级特性
+
+#### 4.2.1 Step Scope
+
+* Spring Batch 中的 Scope，将 Spring Bean 定义为 Step Scope，支持 Spring Bean 在 step 开始的时候初始化，在 Step 结束的时候销毁 Spring Bean，将 Spring Bean 的声明周期与 Step 绑定
+* 通过属性 `Scope="Step"` 来定义 bean 的生命周期并与 Step 绑定；通过使用 Step Scope， 可以支持属性的 Late Binding(属性后绑定)能力
+
+#### 4.2.2 属性 Late Binding
+
+* Spring Batch 通过特定的表达式支持为 Job 或 Step 关联的实体使用后绑定技术。
+* 在 Step Scope 中 Spring Batch 提供的可以使用的实体包括
+  *  `jobParameters` - 作业参数
+  * `jobExecutionContext` - 当前 Job 的执行器上下文
+  * `stepExecutionContext` - 当前 Step 的执行器上下文
+* Late Binding 可以避免在配置文件中使用硬编码的方式指定读取的配置文件，可以直接在运行期使用 Job 传入的参数
 
 
 
+### 4.3 运行 Job
+
+* 执行 Job 的接口 API
+
+  * API 间的联系
+
+    ![job-run-1](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/base/4.3-job-run-1.png)
+
+  * API详解
+
+    ![job-run-2](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/base/4.3-job-run-2.png)
 
 
 
+#### 4.3.1 调度作业
+
+* JobLauncher 支持对作业的同步、异步两种调用模式
 
 
 
+##### 4.3.1.1 同步异步
+
+* 默认情况下，JobLauncher 的 run 操作通过同步方式调用 Job，任何调用 Job 的客户端需要等待 Job 的执行结果返回后才能结束
+
+  ![job-run-sync](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/base/4.3.1.1-job-run-sync.png)
+
+* 异步调用 JobLauncher 只需要增加属性 taskExecutor，该属性标识当前执行的线程池
+
+  ![job-run-async](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/base/4.3.1.1-job-run-async.png)
+
+##### 4.3.1.2 Job 与外界系统
+
+* 在实际的 Job 使用场景中，标准 Web 应用、定时任务调度器、命令行等都可能触发不同的 Job操作
+
+  ![spring-batch-outside-relation-1](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/base/4.3.1.2-spring-batch-outside-relation-1.png)
 
 
 
+#### 4.3.2 命令行执行
+
+* Spring Batch 命令行执行类：
+
+  * `org.springframework.batch.core.launch.support.CommandLineJobRunner` 
+
+  * 通过命令行方式执行 Job 的入口，在一个单独的 JVM 中执行批处理作业；可以手动触发，也可以定义自动任务通过脚本的方式执行批处理作业
+
+    ![job-run-commandline-1](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/base/4.3.2-job-run-commandline-1.png)
 
 
 
+#### 4.3.3 与定时任务集成
+
+* spring batch 框架和 spring scheduler 间的关系
+
+  ![spring-batch-scheduler-1](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/base/4.3.3-spring-batch-scheduler-1.png)
+
+* spring scheduler 使用
+  1. 定义一个 scheduler，该 scheduler 提供执行定时任务的线程
+  2. 定义需要定时操作的方法和调度周期
 
 
 
+4.3.4 与 Web 应用集成
+
+* spring batch 基于 spring 开发，可以方便地内嵌在 Web 应用中使用，这样批处理可以通过 HTTP 协议进行远程访问
+* 同样可以在 Web 应用中内嵌定时任务处理框架，方便在 Web 应用内部通过定时框架调用 Spring Batch 中定义地 Job
+
+* web 应用、spring batch、spring scheduler 关系
+
+  ![springbatch-web-scheduler-1](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/base/4.3.4-springbatch-web-scheduler-1.png)
 
 
 
+#### 4.3.5 停止 Job
+
+##### 4.3.5.1 JobOperator 停止 Job
+
+* Job 执行期间通过 `org.springframework.batch.core.launch.JobOperator#stop` 方法停止正在运行地 Job
+  * stop 方法返回 Boolean 值，表示当前终止消息是否成功发送，至于什么时候终止消息，则由 spring batch 框架本身决定
+* 可以利用 Spring 的特性，将 Bean 暴露为 JMX 服务，同时根据 JConsole 提供的 执行 JMX 服务的入口，一旦 JobOperator 定义为 JMX 服务后，就可以通过 JConsole 的方式操作对应的Stop操作 
 
 
 
+##### 4.3.5.2 业务停止 Job
+
+* 通过 `StepExecution#setTerminateOnly()` 操作可以终止正在运行的任务，即在作业步执行期间终止任务
+* `StepExecution#setTerminateOnly()` 会发送一个停止消息给框架，一旦 spring batch 框架接收到停止消息，并且框架获取作业的控制权，spring batch 框架会自动终止作业
+* 在通过业务操作终止任务操作时，不要在读、处理、写的业务逻辑中终止任务，尽量保证业务操作的完整性
 
 
 
+## 5 配置作业步 Step
+
+* Step 作用域最大，然后是 Tasklet，接下来为 Chunk，在每个 Chunk 中可以定义 read、process、write
+
+  ![step-relation-1](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/base/5-step-relation-1.png)
 
 
 
+### 5.1  配置 Step
+
+* Step 主要属性和元素定义
+
+  ![step-xml-properties-1](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/base/5-step-xml-properties-1.png)
+
+  ![step-xml-subproperties-1](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/base/5-step-xml-subproperties-1.png)
 
 
 
+#### 5.1.1 Step 抽象与继承
 
 
 
+#### 5.1.2 Step 执行拦截器
+
+* spring batch 在 Step 执行阶段提供了拦截器，使得在 Step 执行前后能够加入自定义的业务逻辑
+* Step 执行阶段拦截器接口：
+  * `org.springframework.batch.core.StepExecutionListener` 
 
 
 
+### 5.2 配置 Tasklet
+
+* tasklet 元素定义入伍的具体执行逻辑，执行逻辑可以自定义实现，也可以使用 spring batch 的 Chunk 操作：读、处理、写。通过tasklet可以定义事务、处理线程、启动控制、回滚控制、拦截器等
+
+* tasklet属性
+
+  ![tasklet-xml-properties-1](https://raw.githubusercontent.com/jinminer/docs/master/spring-batch/spring-batch-in-action/base/5.2-tasklet-xml-properties-1.png)
+
+* 
 
 
 

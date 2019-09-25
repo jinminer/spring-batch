@@ -35,7 +35,7 @@
     <!-- 读取jms -->
     <bean:bean id="jmsItemReader"
 		class="org.springframework.batch.item.jms.JmsItemReader">
-		<bean:property name="itemType" value="com.juxtapose.example.ch06.CreditBill"/>
+		<bean:property name="itemType" value="com.jinm.example.ch06.CreditBill"/>
 		<bean:property name="jmsTemplate" ref="jmsTemplate"/>
 	</bean:bean>
 	
@@ -55,9 +55,9 @@
     <amq:queue id="userDestination" physicalName="destination.creditBill" /> 
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch06.CreditBillProcessor">
+        class="com.jinm.example.ch06.CreditBillProcessor">
     </bean:bean>
     
-    <bean:bean id="creditItemWriter" class="com.juxtapose.example.ch06.DummyCreditItemWriter"/>
+    <bean:bean id="creditItemWriter" class="com.jinm.example.ch06.DummyCreditItemWriter"/>
     
 </bean:beans>

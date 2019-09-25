@@ -3,7 +3,7 @@
 		xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
 		version="1.0">
 	<persistence-unit name="creditBill" transaction-type="RESOURCE_LOCAL">
-        <class>com.juxtapose.example.ch06.jpa.CreditBill</class>
+        <class>com.jinm.example.ch06.jpa.CreditBill</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 	</persistence-unit>
-</persistence>
+</persistence>

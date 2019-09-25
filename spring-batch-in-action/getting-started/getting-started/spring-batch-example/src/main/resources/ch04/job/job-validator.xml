@@ -105,15 +105,15 @@
     </bean:bean>
     
     <bean:bean id="creditBill" scope="prototype"
-        class="com.juxtapose.example.ch04.CreditBill">
+        class="com.jinm.example.ch04.CreditBill">
     </bean:bean>
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch04.CreditBillProcessor">
+        class="com.jinm.example.ch04.CreditBillProcessor">
     </bean:bean>
     <bean:bean id="sysoutListener" 
-        class="com.juxtapose.example.ch04.listener.SystemOutJobExecutionListener">
+        class="com.jinm.example.ch04.listener.SystemOutJobExecutionListener">
     </bean:bean>
     <bean:bean id="sysoutAnnotationListener" 
-        class="com.juxtapose.example.ch04.listener.SystemOut">
+        class="com.jinm.example.ch04.listener.SystemOut">
     </bean:bean>
 </bean:beans>

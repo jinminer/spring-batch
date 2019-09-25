@@ -14,7 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * 
- * @author bruce.liu(mailto:jxta.liu@gmail.com)
+ *
  * 2013-8-17上午07:59:17
  */
 public class JobLaunchStoredProcedure {

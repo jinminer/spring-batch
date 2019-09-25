@@ -46,7 +46,7 @@
     </job>
     
      <bean:bean id="fileExistsDecider"
-        class="com.juxtapose.example.ch09.decider.FileExistsDecider">
+        class="com.jinm.example.ch09.decider.FileExistsDecider">
         <bean:property name="creditService" ref="creditService" />
     </bean:bean>
     

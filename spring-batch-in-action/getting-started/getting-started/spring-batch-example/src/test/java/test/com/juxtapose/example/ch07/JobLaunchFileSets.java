@@ -11,7 +11,7 @@ import test.com.juxtapose.example.JobLaunchBase;
 
 /**
  * 
- * @author bruce.liu(mailto:jxta.liu@gmail.com)
+ *
  * 2013-9-21下午05:25:54
  */
 public class JobLaunchFileSets {

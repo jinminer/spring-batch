@@ -54,8 +54,9 @@
         <bean:property name="delimiter" value=","/>
         <bean:property name="names" value="accountID,name,amount,date,address" />
     </bean:bean>
-        <bean:bean id="creditBillFieldSetMapper"
-        class="com.juxtapose.example.ch06.flat.CreditBillFieldSetMapper">
+    
+    <bean:bean id="creditBillFieldSetMapper"
+        class="com.jinm.example.ch06.flat.CreditBillFieldSetMapper">
     </bean:bean>
     
     <bean:bean id="csvItemWriter" 
@@ -80,14 +81,14 @@
     </bean:bean>
     
     <bean:bean id="copyHeaderLineCallbackHandler"
-        class="com.juxtapose.example.ch06.flat.CopyHeaderLineCallbackHandler">
+        class="com.jinm.example.ch06.flat.CopyHeaderLineCallbackHandler">
     </bean:bean>
     
     <bean:bean id="creditBill" scope="prototype"
-        class="com.juxtapose.example.ch06.CreditBill">
+        class="com.jinm.example.ch06.CreditBill">
     </bean:bean>
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch06.CreditBillProcessor">
+        class="com.jinm.example.ch06.CreditBillProcessor">
     </bean:bean>
 </bean:beans>

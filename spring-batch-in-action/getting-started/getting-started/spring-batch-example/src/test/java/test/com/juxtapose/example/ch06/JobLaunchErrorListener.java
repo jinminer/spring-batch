@@ -11,8 +11,8 @@ import test.com.juxtapose.example.JobLaunchBase;
 
 /**
  * 
- * @author bruce.liu(mailto:jxta.liu@gmail.com)
- * 2013-8-16下午09:09:42
+ *
+ * 下午09:09:42
  */
 public class JobLaunchErrorListener extends JobLaunchBase{
 	

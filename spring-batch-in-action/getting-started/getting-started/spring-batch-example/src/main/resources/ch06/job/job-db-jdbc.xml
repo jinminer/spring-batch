@@ -51,8 +51,8 @@
         </bean:property>
     </bean:bean>
     
-    <bean:bean id="custCreditRowMapper" class="com.juxtapose.example.ch06.db.CreditBillRowMapper"/>
-    <bean:bean id="custPreparedStatementSetter" class="com.juxtapose.example.ch06.db.CreditBillPreparedStatementSetter"/>
+    <bean:bean id="custCreditRowMapper" class="com.jinm.example.ch06.db.CreditBillRowMapper"/>
+    <bean:bean id="custPreparedStatementSetter" class="com.jinm.example.ch06.db.CreditBillPreparedStatementSetter"/>
     
     <!-- End参数化读取db -->
     
@@ -63,16 +63,16 @@
         <bean:property name="sql" value="select ID,ACCOUNTID,NAME,AMOUNT,DATE,ADDRESS from t_credit where id between 1 and 5 "/>
         <bean:property name="rowMapper">
             <bean:bean class="org.springframework.jdbc.core.BeanPropertyRowMapper">
-                <bean:property name="mappedClass" value="com.juxtapose.example.ch06.CreditBill"/>
+                <bean:property name="mappedClass" value="com.jinm.example.ch06.CreditBill"/>
             </bean:bean>
         </bean:property>
     </bean:bean>
     <!-- End 读取db -->
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch06.CreditBillProcessor">
+        class="com.jinm.example.ch06.CreditBillProcessor">
     </bean:bean>
     
-    <bean:bean id="creditItemWriter" class="com.juxtapose.example.ch06.DummyCreditItemWriter"/>
+    <bean:bean id="creditItemWriter" class="com.jinm.example.ch06.DummyCreditItemWriter"/>
     
 </bean:beans>

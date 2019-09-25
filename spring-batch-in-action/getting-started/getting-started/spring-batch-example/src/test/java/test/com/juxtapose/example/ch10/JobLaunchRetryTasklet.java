@@ -11,7 +11,7 @@ import test.com.juxtapose.example.JobLaunchBase;
 
 /**
  * 
- * @author bruce.liu(mailto:jxta.liu@gmail.com)
+ *
  * 2013-10-21下午10:14:09
  */
 public class JobLaunchRetryTasklet {

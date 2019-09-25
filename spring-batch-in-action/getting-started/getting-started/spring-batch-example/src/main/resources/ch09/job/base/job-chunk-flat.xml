@@ -64,15 +64,15 @@
     </bean:bean>
 
     <bean:bean id="creditBillFieldSetMapper"
-        class="com.juxtapose.example.ch09.chunk.CreditBillFieldSetMapper">
+        class="com.jinm.example.ch09.chunk.CreditBillFieldSetMapper">
     </bean:bean>
     
     <bean:bean id="creditBill" scope="prototype"
-        class="com.juxtapose.example.ch09.chunk.CreditBill">
+        class="com.jinm.example.ch09.chunk.CreditBill">
     </bean:bean>
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch09.chunk.CreditBillProcessor">
+        class="com.jinm.example.ch09.chunk.CreditBillProcessor">
     </bean:bean>
         
 </bean:beans>

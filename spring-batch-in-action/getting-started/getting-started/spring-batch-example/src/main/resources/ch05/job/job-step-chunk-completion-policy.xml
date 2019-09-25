@@ -32,9 +32,9 @@
     <bean:bean id="completionPolicy" class="org.springframework.batch.repeat.policy.SimpleCompletionPolicy" >
         <bean:property name="chunkSize" value="5" />
     </bean:bean>
-    <bean:bean id="reader" class="com.juxtapose.example.ch05.AutoReader" >
+    <bean:bean id="reader" class="com.jinm.example.ch05.AutoReader" >
         <bean:property name="maxCount" value="100" />
     </bean:bean>
     <bean:bean id="processor" class="org.springframework.batch.item.support.PassThroughItemProcessor" />
-	<bean:bean id="writer" class="com.juxtapose.example.ch05.ConsoleWriter" />
+	<bean:bean id="writer" class="com.jinm.example.ch05.ConsoleWriter" />
 </bean:beans>

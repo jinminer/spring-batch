@@ -45,10 +45,10 @@
     
     <bean:bean id="alwaysSkipPolicy" 
         class="org.springframework.batch.core.step.skip.AlwaysSkipItemSkipPolicy"/>
-    <bean:bean id="reader" class="com.juxtapose.example.ch10.skip.AutoReader" >
+    <bean:bean id="reader" class="com.jinm.example.ch10.skip.AutoReader" >
         <bean:property name="maxCount" value="100" />
     </bean:bean>
-	<bean:bean id="writer" class="com.juxtapose.example.ch10.skip.ConsoleWriter" />
+	<bean:bean id="writer" class="com.jinm.example.ch10.skip.ConsoleWriter" />
 	<bean:bean id="processor" 
-	    class="com.juxtapose.example.ch10.skip.RadomExceptionItemProcessor" />
+	    class="com.jinm.example.ch10.skip.RadomExceptionItemProcessor" />
 </bean:beans>

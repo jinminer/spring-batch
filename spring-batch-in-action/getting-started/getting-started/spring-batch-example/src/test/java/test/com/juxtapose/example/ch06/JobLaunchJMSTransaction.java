@@ -19,11 +19,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 
-import com.juxtapose.example.ch06.CreditBill;
+import com.jinm.example.ch06.CreditBill;
 
 
 /**
- * @author bruce.liu(mailto:jxta.liu@gmail.com)
+ *
  * 2013-1-6下午09:18:11
  */
 public class JobLaunchJMSTransaction {

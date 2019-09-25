@@ -63,7 +63,7 @@
     </bean:bean>
 
     <bean:bean id="creditBillFieldSetMapper"
-        class="com.juxtapose.example.ch11.partition.CreditBillFieldSetMapper">
+        class="com.jinm.example.ch11.partition.CreditBillFieldSetMapper">
     </bean:bean>
     
     <bean:bean id="jdbcItemWriter" 
@@ -76,7 +76,7 @@
     </bean:bean>
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch11.partition.CreditBillProcessor">
+        class="com.jinm.example.ch11.partition.CreditBillProcessor">
     </bean:bean>
 
     <bean:bean id="taskExecutor"
@@ -86,7 +86,7 @@
 	</bean:bean>
 	
     <bean:bean id="partitionItemReadListener"
-		class="com.juxtapose.example.ch11.partition.PartitionStepExecutionListener">
+		class="com.jinm.example.ch11.partition.PartitionStepExecutionListener">
 	</bean:bean>
 	
 </bean:beans>

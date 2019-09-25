@@ -114,34 +114,34 @@
     </bean:bean>
 
     <bean:bean id="creditBillFieldSetMapper"
-        class="com.juxtapose.example.ch08.CreditBillFieldSetMapper">
+        class="com.jinm.example.ch08.CreditBillFieldSetMapper">
     </bean:bean>
     
     <bean:bean id="creditBill"
-        class="com.juxtapose.example.ch08.CreditBill">
+        class="com.jinm.example.ch08.CreditBill">
     </bean:bean>
     
     <bean:bean id="destinationCreditBill"
-        class="com.juxtapose.example.ch08.DestinationCreditBill">
+        class="com.jinm.example.ch08.DestinationCreditBill">
     </bean:bean>
     
     <bean:bean id="translateItemProcessor"
-        class="com.juxtapose.example.ch08.TranslateItemProcessor">
+        class="com.jinm.example.ch08.TranslateItemProcessor">
     </bean:bean>
     
     <bean:bean id="partTranslateItemProcessor"
-        class="com.juxtapose.example.ch08.PartTranslateItemProcessor">
+        class="com.jinm.example.ch08.PartTranslateItemProcessor">
     </bean:bean>
     
     <bean:bean id="errorItemProcessListener"
-		class="com.juxtapose.example.ch08.listener.ErrorItemProcessListener">
+		class="com.jinm.example.ch08.listener.ErrorItemProcessListener">
 	</bean:bean>
 	
     <bean:bean id="sysoutItemProcessListener"
-		class="com.juxtapose.example.ch08.listener.SystemOutItemProcessListener">
+		class="com.jinm.example.ch08.listener.SystemOutItemProcessListener">
 	</bean:bean>
 	
     <bean:bean id="sysoutAnnotationItemProcessListener"
-		class="com.juxtapose.example.ch08.listener.SystemOutAnnotation">
+		class="com.jinm.example.ch08.listener.SystemOutAnnotation">
 	</bean:bean>
 </bean:beans>

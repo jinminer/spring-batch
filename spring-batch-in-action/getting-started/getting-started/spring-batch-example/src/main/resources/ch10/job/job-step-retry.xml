@@ -63,12 +63,12 @@
 	    class="org.springframework.retry.policy.ExceptionClassifierRetryPolicy">
 		<bean:property name="policyMap">
 			<bean:map>
-				<bean:entry key="com.juxtapose.example.ch10.retry.MockARuntimeException">
+				<bean:entry key="com.jinm.example.ch10.retry.MockARuntimeException">
 					<bean:bean class="org.springframework.retry.policy.SimpleRetryPolicy">
 						<bean:property name="maxAttempts" value="3" />
 					</bean:bean>
 				</bean:entry>
-				<bean:entry key="com.juxtapose.example.ch10.retry.MockBRuntimeException">
+				<bean:entry key="com.jinm.example.ch10.retry.MockBRuntimeException">
 					<bean:bean class="org.springframework.retry.policy.SimpleRetryPolicy">
 						<bean:property name="maxAttempts" value="5" />
 					</bean:bean>
@@ -78,15 +78,15 @@
 	</bean:bean>
 	    
     <bean:bean id="sysoutRetryListener" 
-        class=" com.juxtapose.example.ch10.retry.SystemOutRetryListener" />
+        class=" com.jinm.example.ch10.retry.SystemOutRetryListener" />
     
-    <bean:bean id="reader" class="com.juxtapose.example.ch10.retry.AutoReader" >
+    <bean:bean id="reader" class="com.jinm.example.ch10.retry.AutoReader" >
         <bean:property name="maxCount" value="100" />
     </bean:bean>
     
-	<bean:bean id="writer" class="com.juxtapose.example.ch10.retry.ConsoleWriter" />
+	<bean:bean id="writer" class="com.jinm.example.ch10.retry.ConsoleWriter" />
 	<bean:bean id="radomExceptionItemProcessor" 
-	    class="com.juxtapose.example.ch10.retry.RadomExceptionItemProcessor" />
+	    class="com.jinm.example.ch10.retry.RadomExceptionItemProcessor" />
 	<bean:bean id="alwaysExceptionItemProcessor" 
-	    class="com.juxtapose.example.ch10.retry.AlwaysExceptionItemProcessor" />
+	    class="com.jinm.example.ch10.retry.AlwaysExceptionItemProcessor" />
 </bean:beans>

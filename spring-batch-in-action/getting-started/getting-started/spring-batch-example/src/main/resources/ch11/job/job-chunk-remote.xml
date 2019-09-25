@@ -125,7 +125,7 @@
       </bean:bean>    
          
     <bean:bean id="custCreditRowMapper" 
-        class="com.juxtapose.example.ch11.partition.db.CreditBillRowMapper"/>
+        class="com.jinm.example.ch11.partition.db.CreditBillRowMapper"/>
     	
 	<bean:bean id="jdbcItemWriter" 
         class="org.springframework.batch.item.database.JdbcBatchItemWriter">

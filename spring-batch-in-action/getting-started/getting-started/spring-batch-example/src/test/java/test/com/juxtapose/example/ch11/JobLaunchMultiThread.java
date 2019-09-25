@@ -11,7 +11,7 @@ import test.com.juxtapose.example.JobLaunchBase;
 
 /**
  * 
- * @author bruce.liu(mailto:jxta.liu@gmail.com)
+ *
  * 2013-11-16下午10:59:46
  */
 public class JobLaunchMultiThread {

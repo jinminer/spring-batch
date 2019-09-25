@@ -49,7 +49,7 @@
         <bean:property name="dataSource" ref="dataSource"/>
         <bean:property name="sql" value="insert into t_destcredit (ID,ACCOUNTID,NAME,AMOUNT,DATE,ADDRESS) values (?,?,?,?,?,?)"/>
         <bean:property name="itemPreparedStatementSetter">
-            <bean:bean class="com.juxtapose.example.ch07.jdbc.DestCreditBillItemPreparedStatementSetter"/>
+            <bean:bean class="com.jinm.example.ch07.jdbc.DestCreditBillItemPreparedStatementSetter"/>
         </bean:property>
     </bean:bean>
     
@@ -60,14 +60,14 @@
         <bean:property name="sql" value="select ID,ACCOUNTID,NAME,AMOUNT,DATE,ADDRESS from t_credit where id between 1 and 5 "/>
         <bean:property name="rowMapper">
             <bean:bean class="org.springframework.jdbc.core.BeanPropertyRowMapper">
-                <bean:property name="mappedClass" value="com.juxtapose.example.ch07.db.CreditBill"/>
+                <bean:property name="mappedClass" value="com.jinm.example.ch07.db.CreditBill"/>
             </bean:bean>
         </bean:property>
     </bean:bean>
     <!-- End 读取db -->
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch07.db.CreditBillProcessor">
+        class="com.jinm.example.ch07.db.CreditBillProcessor">
     </bean:bean>
     
     

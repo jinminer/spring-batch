@@ -40,7 +40,7 @@
         class="org.springframework.batch.item.file.separator.JsonRecordSeparatorPolicy"/>
     
     <bean:bean id="wrappedJsonLineMapper"
-		class="com.juxtapose.example.ch06.flat.WrappedJsonLineMapper">
+		class="com.jinm.example.ch06.flat.WrappedJsonLineMapper">
 		<bean:property name="delegate" ref="jsonLineMapper"/>
 	</bean:bean>
 	<bean:bean id="jsonLineMapper"
@@ -67,10 +67,10 @@
     </bean:bean>
     
     <bean:bean id="creditBill" scope="prototype"
-        class="com.juxtapose.example.ch06.CreditBill">
+        class="com.jinm.example.ch06.CreditBill">
     </bean:bean>
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch06.CreditBillProcessor">
+        class="com.jinm.example.ch06.CreditBillProcessor">
     </bean:bean>
 </bean:beans>

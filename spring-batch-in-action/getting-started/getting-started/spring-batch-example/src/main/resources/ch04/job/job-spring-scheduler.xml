@@ -29,7 +29,7 @@
 	</task:scheduled-tasks>
 	
 	<bean:bean id="schedulerLauncher" 
-	    class="com.juxtapose.example.ch04.scheduler.SchedulerLauncher">
+	    class="com.jinm.example.ch04.scheduler.SchedulerLauncher">
 		<bean:property name="job" ref="helloworldJob" />
 		<bean:property name="jobLauncher" ref="jobLauncher" />
 	</bean:bean>
@@ -38,7 +38,7 @@
     <job id="helloworldJob">
         <step id="helloworldStep">
            <tasklet>
-				<bean:bean class="com.juxtapose.example.ch04.HelloWorldTasklet">
+				<bean:bean class="com.jinm.example.ch04.HelloWorldTasklet">
 				</bean:bean>
 			</tasklet>	
         </step>

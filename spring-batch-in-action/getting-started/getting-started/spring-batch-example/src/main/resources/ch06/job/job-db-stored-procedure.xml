@@ -41,7 +41,7 @@
         <bean:property name="procedureName" value="query_credit"/>
         <bean:property name="rowMapper">
             <bean:bean class="org.springframework.jdbc.core.BeanPropertyRowMapper">
-                <bean:property name="mappedClass" value="com.juxtapose.example.ch06.CreditBill"/>
+                <bean:property name="mappedClass" value="com.jinm.example.ch06.CreditBill"/>
             </bean:bean>
         </bean:property>
     </bean:bean>
@@ -63,15 +63,15 @@
 	     </bean:property>
         <bean:property name="rowMapper">
             <bean:bean class="org.springframework.jdbc.core.BeanPropertyRowMapper">
-                <bean:property name="mappedClass" value="com.juxtapose.example.ch06.CreditBill"/>
+                <bean:property name="mappedClass" value="com.jinm.example.ch06.CreditBill"/>
             </bean:bean>
         </bean:property>
     </bean:bean>
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch06.CreditBillProcessor">
+        class="com.jinm.example.ch06.CreditBillProcessor">
     </bean:bean>
     
-    <bean:bean id="creditItemWriter" class="com.juxtapose.example.ch06.DummyCreditItemWriter"/>
+    <bean:bean id="creditItemWriter" class="com.jinm.example.ch06.DummyCreditItemWriter"/>
     
 </bean:beans>

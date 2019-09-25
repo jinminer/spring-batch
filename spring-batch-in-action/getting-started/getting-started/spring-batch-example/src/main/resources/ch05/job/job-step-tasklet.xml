@@ -85,9 +85,9 @@
 		<bean:property name="corePoolSize" value="5"/>
 		<bean:property name="maxPoolSize" value="15"/>
 	</bean:bean>
-    <bean:bean id="reader" class="com.juxtapose.example.ch05.AutoReader" />
-	<bean:bean id="writer" class="com.juxtapose.example.ch05.ConsoleWriter" />
-	<bean:bean id="processor" class="com.juxtapose.example.ch05.RadomExceptionItemProcessor" />
-	<bean:bean id="helloWorldTasklet" class="com.juxtapose.example.ch05.HelloWorldTasklet" />
-	<bean:bean id="helloWorldService" class="com.juxtapose.example.ch05.HelloWorldService" />
+    <bean:bean id="reader" class="com.jinm.example.ch05.AutoReader" />
+	<bean:bean id="writer" class="com.jinm.example.ch05.ConsoleWriter" />
+	<bean:bean id="processor" class="com.jinm.example.ch05.RadomExceptionItemProcessor" />
+	<bean:bean id="helloWorldTasklet" class="com.jinm.example.ch05.HelloWorldTasklet" />
+	<bean:bean id="helloWorldService" class="com.jinm.example.ch05.HelloWorldService" />
 </bean:beans>

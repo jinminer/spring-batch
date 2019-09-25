@@ -39,7 +39,7 @@
 	
     <!-- db数据切分 -->
 	<bean:bean id="partitionerDB" 
-	    class="com.juxtapose.example.ch11.partition.db.DBpartition">
+	    class="com.jinm.example.ch11.partition.db.DBpartition">
 		<bean:property name="table" value="t_credit"/>
 		<bean:property name="column" value="ID"/>
         <bean:property name="dataSource" ref="dataSource"/>
@@ -65,7 +65,7 @@
       </bean:bean>    
          
     <bean:bean id="custCreditRowMapper" 
-        class="com.juxtapose.example.ch11.partition.db.CreditBillRowMapper"/>
+        class="com.jinm.example.ch11.partition.db.CreditBillRowMapper"/>
 	
 	<bean:bean id="jdbcItemWriter" 
         class="org.springframework.batch.item.database.JdbcBatchItemWriter">
@@ -77,7 +77,7 @@
     </bean:bean>
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch11.partition.CreditBillProcessor">
+        class="com.jinm.example.ch11.partition.CreditBillProcessor">
     </bean:bean>
 
     <bean:bean id="taskExecutor"
@@ -87,6 +87,6 @@
 	</bean:bean>
 	
     <bean:bean id="partitionItemReadListener"
-		class="com.juxtapose.example.ch11.partition.db.PartitionStepExecutionListener">
+		class="com.jinm.example.ch11.partition.db.PartitionStepExecutionListener">
 	</bean:bean>
 </bean:beans>

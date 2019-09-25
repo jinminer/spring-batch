@@ -41,14 +41,14 @@
     
     
     <bean:bean id="dbSkipListener" 
-        class="com.juxtapose.example.ch10.skip.DBSkipListener" >
+        class="com.jinm.example.ch10.skip.DBSkipListener" >
         <bean:property name="jdbcTemplate" ref="jdbcTemplate"></bean:property>
     </bean:bean>
     <bean:bean id="radomExceptionAutoReader" 
-        class="com.juxtapose.example.ch10.skip.RadomExceptionAutoReader" />
+        class="com.jinm.example.ch10.skip.RadomExceptionAutoReader" />
     <bean:bean id="processor" 
         class="org.springframework.batch.item.support.PassThroughItemProcessor" />
 	<bean:bean id="writer" 
-	    class="com.juxtapose.example.ch10.skip.ConsoleWriter" />
+	    class="com.jinm.example.ch10.skip.ConsoleWriter" />
     
 </bean:beans>

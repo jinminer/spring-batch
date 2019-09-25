@@ -60,7 +60,7 @@
 	</bean:bean>
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch07.db.CreditBillProcessor">
+        class="com.jinm.example.ch07.db.CreditBillProcessor">
     </bean:bean>
     
 </bean:beans>

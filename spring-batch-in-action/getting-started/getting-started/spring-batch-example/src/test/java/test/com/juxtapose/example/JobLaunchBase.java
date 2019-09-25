@@ -11,7 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 
 /**
- * @author bruce.liu(mailto:jxta.liu@gmail.com)
+ *
  * 2013-9-7下午01:57:02
  */
 public class JobLaunchBase {

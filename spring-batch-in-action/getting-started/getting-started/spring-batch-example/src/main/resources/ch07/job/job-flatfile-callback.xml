@@ -69,19 +69,19 @@
     </bean:bean>
 
     <bean:bean id="creditBillFieldSetMapper"
-        class="com.juxtapose.example.ch07.flat.CreditBillFieldSetMapper">
+        class="com.jinm.example.ch07.flat.CreditBillFieldSetMapper">
     </bean:bean>
     
     <bean:bean id="headerCallback" 
-        class="com.juxtapose.example.ch07.flat.DefaultFlatFileHeaderCallback" />
+        class="com.jinm.example.ch07.flat.DefaultFlatFileHeaderCallback" />
     <bean:bean id="footerCallback" 
-        class="com.juxtapose.example.ch07.flat.DefaultFlatFileFooterCallback" />
+        class="com.jinm.example.ch07.flat.DefaultFlatFileFooterCallback" />
     
     <bean:bean id="creditBill" scope="prototype"
-        class="com.juxtapose.example.ch07.CreditBill">
+        class="com.jinm.example.ch07.CreditBill">
     </bean:bean>
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch07.CreditBillProcessor">
+        class="com.jinm.example.ch07.CreditBillProcessor">
     </bean:bean>
 </bean:beans>

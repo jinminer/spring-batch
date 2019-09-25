@@ -3,7 +3,7 @@
 	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
 <sqlMap namespace="DestCredit">
-  <resultMap id="result" class="com.juxtapose.example.ch07.db.DestinationCreditBill">
+  <resultMap id="result" class="com.jinm.example.ch07.db.DestinationCreditBill">
     <result property="id" column="ID" />
     <result property="accountID" column="ACCOUNTID" />
     <result property="name" column="NAME" />
@@ -22,7 +22,7 @@
   	select ID,ACCOUNTID,NAME,AMOUNT,DATE,ADDRESS from t_destcredit where ID between #begin# and #end#
   </select>
   
-  <insert id="insertDestCredits" parameterClass="com.juxtapose.example.ch07.db.DestinationCreditBill">
+  <insert id="insertDestCredits" parameterClass="com.jinm.example.ch07.db.DestinationCreditBill">
  	insert into t_destcredit values(#id#, #accountID#, #name#, #amount#, #date#, #address#) 
   </insert>
 </sqlMap>

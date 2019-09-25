@@ -17,15 +17,15 @@ import org.springframework.retry.policy.TimeoutRetryPolicy;
 import org.springframework.retry.support.DefaultRetryState;
 import org.springframework.retry.support.RetryTemplate;
 
-import com.juxtapose.example.ch10.retry.template.CountHelper;
-import com.juxtapose.example.ch10.retry.template.CountRetryListener;
-import com.juxtapose.example.ch10.retry.template.DefaultBackoffPolicy;
-import com.juxtapose.example.ch10.retry.template.DefaultRecoveryCallback;
-import com.juxtapose.example.ch10.retry.template.DefaultRetryCallback;
+import com.jinm.example.ch10.retry.template.CountHelper;
+import com.jinm.example.ch10.retry.template.CountRetryListener;
+import com.jinm.example.ch10.retry.template.DefaultBackoffPolicy;
+import com.jinm.example.ch10.retry.template.DefaultRecoveryCallback;
+import com.jinm.example.ch10.retry.template.DefaultRetryCallback;
 
 /**
  * 
- * @author bruce.liu(mailto:jxta.liu@gmail.com)
+ *
  * 2013-10-21下午10:59:02
  */
 public class RetryTemplateTestCase {

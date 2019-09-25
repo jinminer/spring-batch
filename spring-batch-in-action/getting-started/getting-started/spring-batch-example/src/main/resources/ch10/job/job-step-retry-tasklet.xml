@@ -26,6 +26,6 @@
     </job>
     
     <bean:bean id="retryTasklet" 
-        class="com.juxtapose.example.ch10.retry.template.CreditBillTasklet" />
+        class="com.jinm.example.ch10.retry.template.CreditBillTasklet" />
     
 </bean:beans>

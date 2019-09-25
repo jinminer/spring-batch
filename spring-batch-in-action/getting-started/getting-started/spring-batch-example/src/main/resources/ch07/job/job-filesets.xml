@@ -49,7 +49,7 @@
     </job>
     
      <bean:bean id="extMultiItemWriter"
-        class="com.juxtapose.example.ch07.multiresource.ext.ExtMultiResourceItemWriter" >
+        class="com.jinm.example.ch07.multiresource.ext.ExtMultiResourceItemWriter" >
         <bean:property name="resource" 
             value="file:target/ch07/filesets/credit-card-bill.xml" />
         <bean:property name="itemCountLimitPerResource" value="2" />
@@ -69,12 +69,12 @@
         <bean:property name="aliases">
             <util:map id="aliases">
                 <bean:entry key="credit" 
-                    value="com.juxtapose.example.ch07.CreditBill"/>
+                    value="com.jinm.example.ch07.CreditBill"/>
             </util:map>
         </bean:property>
     </bean:bean>
     <bean:bean id="creditBill" scope="prototype" 
-        class="com.juxtapose.example.ch07.CreditBill"/>
+        class="com.jinm.example.ch07.CreditBill"/>
     
     <!-- XML文件写入 -->
     <bean:bean id="xmlWriter" 

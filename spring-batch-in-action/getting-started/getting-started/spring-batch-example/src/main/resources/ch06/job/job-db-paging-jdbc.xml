@@ -55,12 +55,12 @@
          <bean:property name="sortKey" value="ID"/>
       </bean:bean>    
          
-    <bean:bean id="custCreditRowMapper" class="com.juxtapose.example.ch06.db.CreditBillRowMapper"/>
+    <bean:bean id="custCreditRowMapper" class="com.jinm.example.ch06.db.CreditBillRowMapper"/>
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch06.CreditBillProcessor">
+        class="com.jinm.example.ch06.CreditBillProcessor">
     </bean:bean>
     
-    <bean:bean id="creditItemWriter" class="com.juxtapose.example.ch06.DummyCreditItemWriter"/>
+    <bean:bean id="creditItemWriter" class="com.jinm.example.ch06.DummyCreditItemWriter"/>
     
 </bean:beans>

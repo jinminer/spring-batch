@@ -66,10 +66,10 @@
 	
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch06.jpa.CreditBillProcessor">
+        class="com.jinm.example.ch06.jpa.CreditBillProcessor">
     </bean:bean>
     
     <bean:bean id="creditItemWriter" 
-        class="com.juxtapose.example.ch06.jpa.DummyCreditItemWriter"/>
+        class="com.jinm.example.ch06.jpa.DummyCreditItemWriter"/>
     
 </bean:beans>

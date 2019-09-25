@@ -76,9 +76,9 @@
     </bean:bean>
     
     <bean:bean id="creditBill" scope="prototype"
-        class="com.juxtapose.example.ch03.CreditBill">
+        class="com.jinm.example.ch03.CreditBill">
     </bean:bean>
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch03.CreditBillProcessor">
+        class="com.jinm.example.ch03.CreditBillProcessor">
     </bean:bean>
 </bean:beans>

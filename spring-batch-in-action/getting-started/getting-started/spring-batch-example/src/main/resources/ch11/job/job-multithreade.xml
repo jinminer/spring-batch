@@ -32,6 +32,6 @@
 		<bean:property name="maxPoolSize" value="15"/>
 	</bean:bean>
 	
-    <bean:bean id="reader" class="com.juxtapose.example.ch11.multithread.AutoReader" />
-	<bean:bean id="writer" class="com.juxtapose.example.ch11.multithread.ConsoleWriter" />
+    <bean:bean id="reader" class="com.jinm.example.ch11.multithread.AutoReader" />
+	<bean:bean id="writer" class="com.jinm.example.ch11.multithread.ConsoleWriter" />
 </bean:beans>

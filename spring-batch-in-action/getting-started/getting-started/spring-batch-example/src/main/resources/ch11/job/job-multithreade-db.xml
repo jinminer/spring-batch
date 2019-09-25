@@ -58,17 +58,17 @@
         <bean:property name="dataSource" ref="dataSource"/>
         <bean:property name="sql" value="insert into t_destcredit (ID,ACCOUNTID,NAME,AMOUNT,DATE,ADDRESS) values (?,?,?,?,?,?)"/>
         <bean:property name="itemPreparedStatementSetter">
-            <bean:bean class="com.juxtapose.example.ch11.multithread.DestCreditBillItemPreparedStatementSetter"/>
+            <bean:bean class="com.jinm.example.ch11.multithread.DestCreditBillItemPreparedStatementSetter"/>
         </bean:property>
     </bean:bean>
     
     <bean:bean id="creditBillItemReader" 
-        class="com.juxtapose.example.ch11.multithread.SynchronizedItemReader">
+        class="com.jinm.example.ch11.multithread.SynchronizedItemReader">
 		<bean:property name="delegate" ref="jdbcItemReader" />
 	</bean:bean>
 	
     <bean:bean id="creditBillRestartItemReader" 
-        class="com.juxtapose.example.ch11.multithread.SynchronizedItemReader">
+        class="com.jinm.example.ch11.multithread.SynchronizedItemReader">
 		<bean:property name="delegate" ref="jdbcRestartItemReader" />
 	</bean:bean>
     
@@ -81,7 +81,7 @@
         <bean:property name="saveState" value="false"></bean:property>
         <bean:property name="rowMapper">
             <bean:bean class="org.springframework.jdbc.core.BeanPropertyRowMapper">
-                <bean:property name="mappedClass" value="com.juxtapose.example.ch11.multithread.CreditBill"/>
+                <bean:property name="mappedClass" value="com.jinm.example.ch11.multithread.CreditBill"/>
             </bean:bean>
         </bean:property>
     </bean:bean>
@@ -95,7 +95,7 @@
         <bean:property name="saveState" value="false"></bean:property>
         <bean:property name="rowMapper">
             <bean:bean class="org.springframework.jdbc.core.BeanPropertyRowMapper">
-                <bean:property name="mappedClass" value="com.juxtapose.example.ch11.multithread.CreditBill"/>
+                <bean:property name="mappedClass" value="com.jinm.example.ch11.multithread.CreditBill"/>
             </bean:bean>
         </bean:property>
     </bean:bean>
@@ -103,11 +103,11 @@
     <!-- End 读取db -->
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch11.multithread.CreditBillProcessor">
+        class="com.jinm.example.ch11.multithread.CreditBillProcessor">
     </bean:bean>
     
      <bean:bean id="creditBillRestartProcessor" scope="step"
-        class="com.juxtapose.example.ch11.multithread.CreditBillProcessor">
+        class="com.jinm.example.ch11.multithread.CreditBillProcessor">
         <bean:property name="jdbcTemplate" ref="jdbcTemplate"></bean:property>
     </bean:bean>
     

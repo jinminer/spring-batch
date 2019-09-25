@@ -45,7 +45,7 @@
         <bean:property name="aliases">
             <util:map id="aliases">
                 <bean:entry key="credit" 
-                    value="com.juxtapose.example.ch07.CreditBill"/>
+                    value="com.jinm.example.ch07.CreditBill"/>
             </util:map>
         </bean:property>
     </bean:bean>
@@ -60,10 +60,10 @@
     </bean:bean>
     
     <bean:bean id="headerCallback" 
-        class="com.juxtapose.example.ch07.xml.HeaderStaxWriterCallback"/>
+        class="com.jinm.example.ch07.xml.HeaderStaxWriterCallback"/>
     <bean:bean id="footerCallback" 
-        class="com.juxtapose.example.ch07.xml.FooterStaxWriterCallback"/>
+        class="com.jinm.example.ch07.xml.FooterStaxWriterCallback"/>
     
     <bean:bean id="creditBill" scope="prototype" 
-        class="com.juxtapose.example.ch07.CreditBill"/>
+        class="com.jinm.example.ch07.CreditBill"/>
 </bean:beans>

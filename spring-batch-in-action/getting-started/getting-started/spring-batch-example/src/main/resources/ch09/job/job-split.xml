@@ -52,7 +52,7 @@
 	</bean:bean>
     
     <bean:bean id="splitStepExecutionListener" scope="step"
-        class="com.juxtapose.example.ch09.listener.SplitStepExecutionListener">
+        class="com.jinm.example.ch09.listener.SplitStepExecutionListener">
         <bean:property name="readFile" value="classpath:ch09/data/credit-card-bill-201311.csv" />
         <bean:property name="writeFile" value="file:target/ch09/split/outputFile_11.csv" />
     </bean:bean>

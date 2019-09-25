@@ -70,22 +70,22 @@
     </bean:bean>
 
     <bean:bean id="creditBillFieldSetMapper"
-        class="com.juxtapose.example.ch08.CreditBillFieldSetMapper">
+        class="com.jinm.example.ch08.CreditBillFieldSetMapper">
     </bean:bean>
     
     <bean:bean id="creditBill"
-        class="com.juxtapose.example.ch08.CreditBill">
+        class="com.jinm.example.ch08.CreditBill">
     </bean:bean>
     
     <bean:bean id="destinationCreditBill"
-        class="com.juxtapose.example.ch08.DestinationCreditBill">
+        class="com.jinm.example.ch08.DestinationCreditBill">
     </bean:bean>
     
     <bean:bean id="filterItemProcessor"
-        class="com.juxtapose.example.ch08.FilterItemProcessor">
+        class="com.jinm.example.ch08.FilterItemProcessor">
     </bean:bean>
     
     <bean:bean id="filterCountStepExecutionListener"
-        class="com.juxtapose.example.ch08.FilterCountStepExecutionListener">
+        class="com.jinm.example.ch08.FilterCountStepExecutionListener">
     </bean:bean>
 </bean:beans>

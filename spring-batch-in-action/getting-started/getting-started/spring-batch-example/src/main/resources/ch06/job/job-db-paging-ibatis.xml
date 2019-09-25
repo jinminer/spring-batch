@@ -54,10 +54,10 @@
 	</bean:bean>
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch06.ibatis.CreditBillProcessor">
+        class="com.jinm.example.ch06.ibatis.CreditBillProcessor">
     </bean:bean>
     
     <bean:bean id="creditItemWriter" 
-        class="com.juxtapose.example.ch06.ibatis.DummyCreditItemWriter"/>
+        class="com.jinm.example.ch06.ibatis.DummyCreditItemWriter"/>
     
 </bean:beans>

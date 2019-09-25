@@ -29,7 +29,7 @@
     </job>
     
     <bean:bean id="customItemWriter"
-			class="com.juxtapose.example.ch07.cust.itemwriter.CustomCreditBillItemWriter">
+			class="com.jinm.example.ch07.cust.itemwriter.CustomCreditBillItemWriter">
 	</bean:bean>
 	
     <job id="restartableCustomItemWriteJob">
@@ -43,7 +43,7 @@
     </job>
     
     <bean:bean id="restartableCustomItemWriter"
-			class="com.juxtapose.example.ch07.cust.itemwriter.RestartableCustomCreditBillItemWriter">
+			class="com.jinm.example.ch07.cust.itemwriter.RestartableCustomCreditBillItemWriter">
 	</bean:bean>
     
     
@@ -67,15 +67,15 @@
     </bean:bean>
 
     <bean:bean id="creditBillFieldSetMapper"
-        class="com.juxtapose.example.ch07.flat.CreditBillFieldSetMapper">
+        class="com.jinm.example.ch07.flat.CreditBillFieldSetMapper">
     </bean:bean>
     
     <bean:bean id="creditBill" scope="prototype"
-        class="com.juxtapose.example.ch07.CreditBill">
+        class="com.jinm.example.ch07.CreditBill">
     </bean:bean>
     
     <bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch07.CreditBillProcessor">
+        class="com.jinm.example.ch07.CreditBillProcessor">
     </bean:bean>
             
 </bean:beans>

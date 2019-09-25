@@ -53,7 +53,7 @@
     </bean:bean>
 
     <bean:bean id="creditBillFieldSetMapper"
-        class="com.juxtapose.example.ch06.flat.CreditBillFieldSetMapper">
+        class="com.jinm.example.ch06.flat.CreditBillFieldSetMapper">
     </bean:bean>
     
     <bean:bean id="csvItemWriter" 
@@ -77,7 +77,7 @@
     </bean:bean>
     
     <bean:bean id="creditBill" scope="prototype"
-        class="com.juxtapose.example.ch06.CreditBill">
+        class="com.jinm.example.ch06.CreditBill">
     </bean:bean>
     
 </bean:beans>

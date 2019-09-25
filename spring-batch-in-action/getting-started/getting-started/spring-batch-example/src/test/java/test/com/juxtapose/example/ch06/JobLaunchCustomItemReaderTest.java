@@ -11,13 +11,13 @@ import org.junit.Test;
 import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.ItemStream;
 
-import com.juxtapose.example.ch06.CreditBill;
-import com.juxtapose.example.ch06.cust.itemreader.CustomCreditBillItemReader;
-import com.juxtapose.example.ch06.cust.itemreader.RestartableCustomCreditBillItemReader;
+import com.jinm.example.ch06.CreditBill;
+import com.jinm.example.ch06.cust.itemreader.CustomCreditBillItemReader;
+import com.jinm.example.ch06.cust.itemreader.RestartableCustomCreditBillItemReader;
 
 /**
  * 
- * @author bruce.liu(mailto:jxta.liu@gmail.com)
+ *
  * 2013-9-7下午03:03:44
  */
 public class JobLaunchCustomItemReaderTest {

@@ -24,35 +24,35 @@
     </step>
     
     <bean:bean id="shareDataStepExecutionListener"
-        class="com.juxtapose.example.ch09.listener.ShareDataStepExecutionListener">
+        class="com.jinm.example.ch09.listener.ShareDataStepExecutionListener">
     </bean:bean>
     
     <bean:bean id="creditService"
-        class="com.juxtapose.example.ch09.CreditServiceImpl">
+        class="com.jinm.example.ch09.CreditServiceImpl">
     </bean:bean>
     
     <bean:bean id="decompressTasklet" scope="step"
-        class="com.juxtapose.example.ch09.tasklet.DecompressTasklet">
+        class="com.jinm.example.ch09.tasklet.DecompressTasklet">
         <bean:property name="creditService" ref="creditService" />
         <bean:property name="inputFile" value="#{jobParameters['inputFile']}" />
         <bean:property name="outputDirectory" value="#{jobParameters['workDirectory']}" />
     </bean:bean>
     
     <bean:bean id="verifyTasklet" scope="step"
-        class="com.juxtapose.example.ch09.tasklet.VerifyTasklet">
+        class="com.jinm.example.ch09.tasklet.VerifyTasklet">
         <bean:property name="creditService" ref="creditService" />
         <bean:property name="outputDirectory" value="#{jobParameters['workDirectory']}" />
         <bean:property name="readFileName" value="#{jobParameters['readFileName']}" />
     </bean:bean>
     
     <bean:bean id="cleanTasklet" scope="step"
-        class="com.juxtapose.example.ch09.tasklet.CleanTasklet">
+        class="com.jinm.example.ch09.tasklet.CleanTasklet">
         <bean:property name="creditService" ref="creditService" />
         <bean:property name="outputDirectory" value="#{jobParameters['workDirectory']}" />
     </bean:bean>
     
     <bean:bean id="verifyStepExecutionListener"
-        class="com.juxtapose.example.ch09.listener.VerifyStepExecutionListener">
+        class="com.jinm.example.ch09.listener.VerifyStepExecutionListener">
     </bean:bean>
         
 </bean:beans>

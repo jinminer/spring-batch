@@ -35,19 +35,19 @@
 	</bean:bean>
 
     <bean:bean id="existServiceAdapter"
-        class="com.juxtapose.example.ch06.reuse.CreditBillServiceAdapter">
+        class="com.jinm.example.ch06.reuse.CreditBillServiceAdapter">
         <bean:property name="existService" ref="existService" />
     </bean:bean>
     
 	<bean:bean id="existService" 
-	    class="com.juxtapose.example.ch06.reuse.ExistService" >
+	    class="com.jinm.example.ch06.reuse.ExistService" >
 	</bean:bean>
 	
 	<bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch06.CreditBillProcessor">
+        class="com.jinm.example.ch06.CreditBillProcessor">
     </bean:bean>
     
     <bean:bean id="creditItemWriter" 
-        class="com.juxtapose.example.ch06.DummyCreditItemWriter"/>
+        class="com.jinm.example.ch06.DummyCreditItemWriter"/>
             
 </bean:beans>

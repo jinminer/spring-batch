@@ -4,7 +4,7 @@
 
 <sqlMap namespace="Credit">
 
-  <resultMap id="result" class="com.juxtapose.example.ch06.ibatis.CreditBill">
+  <resultMap id="result" class="com.jinm.example.ch06.ibatis.CreditBill">
     <result property="id" column="ID" />
     <result property="accountID" column="ACCOUNTID" />
     <result property="name" column="NAME" />

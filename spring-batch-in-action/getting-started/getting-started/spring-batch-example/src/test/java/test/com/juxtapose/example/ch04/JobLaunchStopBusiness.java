@@ -11,11 +11,11 @@ import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.juxtapose.example.ch04.stop.StopStepListener;
+import com.jinm.example.ch04.stop.StopStepListener;
 
 /**
  * 
- * @author bruce.liu(mailto:jxta.liu@gmail.com)
+ *
  * 2013-3-20下午10:35:56
  */
 public class JobLaunchStopBusiness {

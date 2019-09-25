@@ -39,18 +39,18 @@
     </job>
     
     <bean:bean id="customItemRead"
-		class="com.juxtapose.example.ch06.cust.itemreader.CustomCreditBillItemReader">
+		class="com.jinm.example.ch06.cust.itemreader.CustomCreditBillItemReader">
 	</bean:bean>
 	
     <bean:bean id="restartableCustomItemRead"
-		class="com.juxtapose.example.ch06.cust.itemreader.RestartableCustomCreditBillItemReader">
+		class="com.jinm.example.ch06.cust.itemreader.RestartableCustomCreditBillItemReader">
 	</bean:bean>
 
 	<bean:bean id="creditBillProcessor" scope="step"
-        class="com.juxtapose.example.ch06.CreditBillProcessor">
+        class="com.jinm.example.ch06.CreditBillProcessor">
     </bean:bean>
     
     <bean:bean id="creditItemWriter" 
-        class="com.juxtapose.example.ch06.DummyCreditItemWriter"/>
+        class="com.jinm.example.ch06.DummyCreditItemWriter"/>
             
 </bean:beans>

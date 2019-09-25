@@ -71,14 +71,14 @@
     </bean:bean>
 
     <bean:bean id="creditBillFieldSetMapper"
-        class="com.juxtapose.example.ch07.flat.CreditBillFieldSetMapper">
+        class="com.jinm.example.ch07.flat.CreditBillFieldSetMapper">
     </bean:bean>
     
     <bean:bean id="creditBill" scope="prototype"
-        class="com.juxtapose.example.ch07.CreditBill">
+        class="com.jinm.example.ch07.CreditBill">
     </bean:bean>
     
     <bean:bean id="mailItemProcessor"
-        class="com.juxtapose.example.ch07.mail.MailItemProcessor">
+        class="com.jinm.example.ch07.mail.MailItemProcessor">
     </bean:bean>
 </bean:beans>
