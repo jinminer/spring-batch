@@ -12,7 +12,9 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * epay job flow decision configuration.
- * Created by jinm on  2019/09/25.  contact: keanemer.gmail.com
+ *
+ * @author jinm
+ * @date 2019/09/25.  contact: keanemer.gmail
  */
 
 @Configuration
