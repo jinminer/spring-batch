@@ -27,7 +27,7 @@ public class EpayReaderConfiguration {
 
     @Bean
     public Job epayJob() {
-        return jobBuilderFactory.get("epayItemReaderJob").start(epayJobStep()).build();
+        return jobBuilderFactory.get("epayItemReaderJob1").start(epayJobStep()).build();
 
     }
 

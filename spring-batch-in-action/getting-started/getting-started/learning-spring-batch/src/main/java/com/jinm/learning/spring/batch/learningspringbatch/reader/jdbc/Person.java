@@ -6,7 +6,6 @@ import java.util.Date;
  * .
  * Created by jinm on  2019/09/26.  contact: keanemer.gmail.com
  */
-
 public class Person {
 
     private Integer id;

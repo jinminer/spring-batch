@@ -1,6 +1,7 @@
 package com.jinm.learning.spring.batch.learningspringbatch.reader.jdbc;
 
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,7 +19,10 @@ import org.springframework.context.annotation.Configuration;
 public class EpayJDBCItemReaderApplication {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(EpayJDBCItemReaderApplication.class).run();
+        new SpringApplicationBuilder(EpayJDBCItemReaderApplication.class)
+                .properties("server.port=8848")
+                .web(WebApplicationType.SERVLET)
+                .run();
     }
 
 }

@@ -41,7 +41,7 @@ public class EpayJDBCItemReaderConfiguration {
 
     @Bean
     public Job DBJdbcItemReaderJob() {
-        return jobBuilderFactory.get("epayJdbcItemReaderJob1")
+        return jobBuilderFactory.get("epayJdbcItemReaderJob2")
                 .start(DBJdbcItemReaderJobStep())
                 .build();
 
