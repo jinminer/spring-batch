@@ -64,30 +64,35 @@
 
 # 2 get started
 
-* Spring Boot based system
-  * start.spring.io
-    * Spring Initializer
-    * Choose what you want: Batch
-  * Download the zip file: Maven project
-  * Import into IDE
+## 2.1 Spring Boot based system
+
+* start.spring.io
+  * Spring Initializer
+  * Choose what you want: Batch
+* Download the zip file: Maven project
+* Import into IDE
 
 
 
-## 2.1 hello world
+## 2.2 Create a simple Job
+
+* Configuration package
+* Add JobConfiguration class - Java based config(xml)
+  * `@Configuration` 
+  * `@EnableBatchProcessing` 
+
+* Dependencies - `@Autowired` 
+  * `JobBuilderFactory` 
+  * `StepBuilderFactory` 
 
 
 
+## 2.3 Config MySQL DB
 
+As previous demo that based on the in memory H2 DB, we will config to use MySQL DB to persist JobRepository related data
 
-## 2.2 环节搭建
-
-
-
-
-
-## 2.3 批处理中的重要概念
-
-
+1. Introduce jdbc and mysql dependencies in pom file
+2. Add config items in application.properties file
 
 
 
