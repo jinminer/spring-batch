@@ -195,6 +195,21 @@ public JobExecution run(Job job, JobParameters jobParameters)
 
 
 
+# 4 job flow
+
+
+
+## 4.1 job flow introduction
+
+* state machine
+  * step 1 finish, should go to step 2 or step 3 ?
+* based on the previous demo, create step 2 and step 3
+  * using next() to sequentially execute step 1,2,3
+  * using on(), to(), from() to show the same as above
+  * demonstrate fail() and stopAndTestart()
+
+
+
 ## 3.2 job flow
 
 
