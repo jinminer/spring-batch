@@ -1,4 +1,4 @@
-package com.jinm.learning.hellobatch.config;
+package com.jinm.learning.hellobatch.hellowspringbatch;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;

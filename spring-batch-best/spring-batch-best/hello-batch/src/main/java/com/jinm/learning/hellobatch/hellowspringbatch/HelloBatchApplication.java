@@ -1,4 +1,4 @@
-package com.jinm.learning.hellobatch;
+package com.jinm.learning.hellobatch.hellowspringbatch;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

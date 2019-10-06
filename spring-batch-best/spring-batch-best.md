@@ -206,23 +206,53 @@ public JobExecution run(Job job, JobParameters jobParameters)
 * based on the previous demo, create step 2 and step 3
   * using next() to sequentially execute step 1,2,3
   * using on(), to(), from() to show the same as above
-  * demonstrate fail() and stopAndTestart()
+  * demonstrate fail() and stopAndRestart()
 
 
 
-## 3.2 job flow
+## 4.2 flow
+
+* Flow is nothing but a collection of Steps and related transitions, it is made up Steps or other flows
+* Flow can be reused within and Job, from a Job to Job
+* Using FlowBuilder to build a flow
+  * Build a flow normally the same as build a job begins with start() and next() to end()
 
 
 
-## 3.3 job split
+
+
+## 4.3 split
+
+Execute multiple flows in parallel
+
+* Define two flows
+  * The included step will print the step name and the thread it executed in
+* Create a Job start the two flows asynchronously using split
+* Launch the Job to see the result
 
 
 
-## 3.4 job decider
 
 
 
-## 3.5 job nested
+
+## 4.4 decider
+
+In some situations, more information than the ExitStatus may be required to decide which step to ececute next. In this case, a JobExecutionDecider can be used to assist in the decision.
+
+
+
+## 4.5 job nested
+
+* What is Listener used in Spring Batch?
+  * A way to control the job execution flow
+* How to implement a listenter?
+  * Implement the interface or using the annotation
+* Listeners provided by Spring Batch, from JOB level to ITEM level:
+  * JobExecutionListener(before..., after...)
+  * StepExecutionListener(before..., after...)
+  * ChunkListener(before..., after..., error...)
+  * ItemReadListener, ItemProcessListener, ItemWriteListener(before..., after..., error)
 
 
 
