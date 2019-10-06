@@ -244,23 +244,32 @@ In some situations, more information than the ExitStatus may be required to deci
 
 ## 4.5 job nested
 
-* What is Listener used in Spring Batch?
-  * A way to control the job execution flow
-* How to implement a listenter?
-  * Implement the interface or using the annotation
-* Listeners provided by Spring Batch, from JOB level to ITEM level:
-  * JobExecutionListener(before..., after...)
-  * StepExecutionListener(before..., after...)
-  * ChunkListener(before..., after..., error...)
-  * ItemReadListener, ItemProcessListener, ItemWriteListener(before..., after..., error)
+* One Job can be nested in another job. For simplicity, we call the nested job the child job, while the nesting job the parent job.
+* Say we have two child jobs, childJob1 and childJob2 and these two jobs ar nested in parent job EODJob.
+* The nested job will not execute separately but be launched by the parent job.
 
 
 
 ## 3.6 job listener
 
+- What is Listener used in Spring Batch?
+  - A way to control the job execution flow
+- How to implement a listenter?
+  - Implement the interface or using the annotation
+- Listeners provided by Spring Batch, from JOB level to ITEM level:
+  - JobExecutionListener(before..., after...)
+  - StepExecutionListener(before..., after...)
+  - ChunkListener(before..., after..., error...)
+  - ItemReadListener, ItemProcessListener, ItemWriteListener(before..., after..., error)
 
 
-## 3.7 job parameters
+
+## 4.7 job parameters
+
+* what is it used for?
+  * Pass information at runtime
+* How it is used?
+  * Pass in "key = value" pairs as program arguments
 
 
 
@@ -268,7 +277,12 @@ In some situations, more information than the ExitStatus may be required to deci
 
 
 
-## 4.1 item reader
+## 4.1 what is item reader
+
+* ItemReader
+  * interface for providing the data
+* read() method
+  * Reads a piece of input data and advance to the next one. Implementations must return null at the end of the input data set
 
 
 
