@@ -394,47 +394,71 @@ If the method return null, the item will not be passed to ItemWriter thus can be
 
 
 
-# 7 exception retry
+## 6.2 composite item processor
+
+Chain multiple item processor which act as delegates.
 
 
 
-## 7.1 exception retry
+# 7 error handling
 
 
 
-## 7.2 exception retry strategy
+## 7.1 overview
+
+Normally if an Exception occurs during job execution, Spring Batch will end the job, and if restart with the same parameter, Spring Batch will pick up where was left last time and continue to try to finish the job.
 
 
 
-## 7.3 exception skip
+## 7.2 retry
+
+As we can see previously that Spring Batch will end the job execution by default, so if we want to retry the job for several times before ending it, we can use `faultTolerant()` to set the (ignored) exception for `retry()` and times for `retryLimit()` 
 
 
 
-## 7.4 exception skip listener
+## 7.3 skip
+
+Similar as retry that we will not retry the step but skip the item which cause error.
+
+We can use `skip()` and `skipLimit()` to set the skip exception and count for skipped items.
 
 
 
+## 7.4 skip listener
+
+In order to process the items skipped, we can use skip listener to record any information we want for later processing, say the item caused error and the error message itself.
 
 
-# 8 job launcher
+
+# 8 schedule
+
+
 
 
 
 ## 8.1 job launcher
 
+You can use JobLauncher to kick off a job or you can use JobOperator to get more options.
 
+In order to demonstrate the job launched externally, we will introduce spring web module to publish a RESTful service for us to control when to start a job.
 
 
 
 ## 8.2 job operator
 
+JobOperator provides us with more functionalities over JobLauncher.
+
+By wrapping JobLauncher, we need to set other properties in JobOperator like jobParametersConverter, jobRepository, and so on.
 
 
 
+## 8.3 scheduler
 
-## 8.3 job scheduler
+Spring Scheduling capability by `@EnableScheduling` 
 
+`@Scheduled` annotation can be used on a method to be called as scheduled.
 
+In order to re-run the job, we have to provide different job parameters for each run. This can be finished by implementing `JobParametersIncrementer` interface.
 
 
 
