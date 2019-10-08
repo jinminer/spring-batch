@@ -286,23 +286,47 @@ In some situations, more information than the ExitStatus may be required to deci
 
 
 
-## 4.2 db item reader
+## 4.2 reading data from db
+
+In real practice, we nomally have to read input data from the database by using pagination, so here we will focus on how to read DB data using JdbcPagingItemReader provided by Spring Batch.
 
 
 
-## 4.3 flat file item reader
+## 4.3 reading from flat files
 
+Using to display how to read data from flat files
 
+* `FlatFileItemReader`
+  * Set lines to skip
+  * Set resource
+  * Set line tokenizer how to parse the line to get the FieldSet(similar to ResultSet)
+  * 
 
 ## 4.4 xml item reader
 
-
-
-## 4.5 multiple file reader
+Using `StaxEventItemReader<T>` to read data from xml file.
 
 
 
-## 4.6 item reader exception
+## 4.5 reading from multiple resources
+
+It is not uncommon that we need to read data from multiple resources, say from multiple files in a given directory.
+
+We can use `MultiResourceItemReader` to register these input files and set a delegate item reader for processing each standalone file.
+
+
+
+## 4.6 Make ItemReader restartable
+
+For chunk-oriented step, Spring Batch provide facility to manage the state.
+
+How state is managed in a step is via `ItemStream` interface which provide developers the access the component where the state is maintained. This component mentioned here is `ExecutionContext` which in fact is a map of key value paris. The map represents the state of a particular step. The ExecutionContext makes it possible to restart a step cause the state is persisted in the JobRepository.[Check DB]
+
+When there is something wrong during execution, the last state will be **updated** to JobRepository.
+
+Next time when the job runs, the last state will be used to populate the ExecutionContext and the can continue running from where is left last time.
+
+Check ItemStream interface: open() will be called at the begin of the step and ExecutionContext will be populated with the value from DB; update() will be called at the end of each step or transaction to update the ExecutionContext; close() is called when all chunk of data is done.
 
 
 
@@ -310,23 +334,47 @@ In some situations, more information than the ExitStatus may be required to deci
 
 
 
-## 5.1 item writer
+## 5.1 overview
+
+Read is individually.
+
+Write is chunked, will write a block of items(say a single batch update int DB to improve the efficiency)
 
 
 
-## 5.2 db item writer
+## 5.2 writing data to db
+
+Spring batch providers us various ways to write data to db:
+
+* Neo4jItemWriter
+* MongoItemWriter
+* RepositoryItemWriter
+* HibernateItemWriter
+* JdbcBatchItemWriter
+* JpaItemWriter
+* GemfireItemWriter
 
  
 
-## 5.3 flat file item writer
+## 5.3 Writing to flat files
+
+`FlatFileItemWriter<T>` to write (serialize) each of the object of type T to (a line of String in) a file.
+
+Let`s say a scenario, we read data from DB and write to a file.
 
 
 
-## 5.4 xml item writer
+## 5.4 wirting to xml files
+
+The same as writing data to flat file, we just need to use `StaxEventItemWriter<T>` to write data to xml file.
+
+In order to serialize data to xml, we can use `XStreamMarshall`.
 
 
 
 ## 5.5 multiple file writer
+
+Using `CompositeItemWriter<T>` and `ClassifierCompositeItemWriter<T>` to write data to different file.
 
 
 
@@ -334,7 +382,15 @@ In some situations, more information than the ExitStatus may be required to deci
 
 
 
-## 6.1 item processor
+## 6.1 overview
+
+ItemProcessor is used to do business logic, validation, filter and etc.
+
+`ItemProcessor<I,O> ` is a interface with one method `O process(I item)` 
+
+The method will accept an object of type I and return an object of type O.
+
+If the method return null, the item will not be passed to ItemWriter thus can be filtered from been output.  
 
 
 
