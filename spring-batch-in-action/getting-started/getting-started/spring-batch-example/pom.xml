@@ -207,7 +207,7 @@
 	<dependency>
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-core</artifactId>
-		<version>3.3.2.GA</version>
+		<version>5.4.24.Final</version>
 		<optional>false</optional>
 		<type>jar</type>
 	</dependency>
